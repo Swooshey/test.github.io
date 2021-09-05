@@ -1,0 +1,110 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Whac A Mole</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <img src="img/moon.png" id="icon">
+  <button type="button" id="restart" onClick="window.location.reload();">Restart</button>
+  <div class="logo">
+        <span class="logo" id="logw">W</span>
+        <span class="logo" id="logh">H</span>
+        <span class="logo" id="loga">A</span>
+        <span class="logo" id="logc">C</span>
+        <span class="logo" id="log-">-</span>
+        <span class="logo" id="loga2">A</span>
+        <span class="logo" id="log-2">-</span>
+        <span class="logo" id="logm">M</span>
+        <span class="logo" id="logo">O</span>
+        <span class="logo" id="logl">L</span>
+        <span class="logo" id="loge">E</span>
+        <span class="logo" id="logex">!</span>
+    </div>
+
+  <h2 class="sco">Your score:</h2>
+  <h2 class="sco"id="score">0</h2>
+
+  <h2 class="time">Time Left:</h2>
+  <h2 class="time" id="time-left">60</h2>
+
+  <div class="grid">
+    <div class="square" id="bl1"></div>
+    <div class="square" id="bl2"></div>
+    <div class="square" id="bl3"></div>
+    <div class="square" id="bl4"></div>
+    <div class="square" id="bl5"></div>
+    <div class="square" id="bl6"></div>
+    <div class="square" id="bl7"></div>
+    <div class="square" id="bl8"></div>
+    <div class="square" id="bl9"></div>
+  </div>
+
+<script>
+var icon = document.getElementById("icon");
+            icon.onclick = function() {
+                  document.body.classList.toggle("dark-theme");
+                  if(document.body.classList.contains("dark-theme")) {
+                  icon.src ="img/sun1.png";
+            }
+                  else {
+                        icon.src="img/moon.png"
+                  }
+            }
+
+const squares = document.querySelectorAll('.square')
+const mole = document.querySelector('.mole')
+const timeLeft = document.querySelector('#time-left')
+const score = document.querySelector('#score')
+
+let result = 0
+let hitPosition
+let currentTime = 60
+let timerId = null
+
+function randomSquare() {
+  squares.forEach(square => {
+    square.classList.remove('mole')
+  })
+
+  let randomSquare = squares[Math.floor(Math.random() * 9)]
+  randomSquare.classList.add('mole')
+
+  hitPosition = randomSquare.id
+}
+
+squares.forEach(square => {
+  square.addEventListener('mousedown', () => {
+    if (square.id == hitPosition) {
+      result++
+      score.textContent = result
+      hitPosition = null
+    }
+  })
+})
+
+function moveMole() {
+  timerId = setInterval(randomSquare, 500)
+}
+
+moveMole()
+
+function countDown() {
+ currentTime--
+ timeLeft.textContent = currentTime
+
+ if (currentTime == 0) {
+   clearInterval(countDownTimerId)
+   clearInterval(timerId)
+   alert('GAME OVER! Your final score is ' + result)
+ }
+
+}
+
+let countDownTimerId = setInterval(countDown, 1000)    
+</script>
+</body>
+</html>

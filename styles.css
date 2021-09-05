@@ -1,0 +1,218 @@
+:root {
+	--accent: #fff;
+	--accent2: #000;
+	--grid: #f3f3f3;
+	--cursor: url("img/hammer.png");
+	--mole: url("img/mole.png");
+	--ac: #1a1a1a;
+	--weight: lighter
+  }
+  
+  .dark-theme {
+	--accent: rgb(17, 17, 17);
+	--accent2: rgb(255, 255, 255);
+	--grid: #242424;
+	--cursor: url("img/hammer1.png");
+	--mole: url("img/mole1.png");
+	--ac: #707070;
+	--weight: bold
+  }
+  
+  @font-face {
+	font-family: whacky;
+	src: url(https://fonts.gstatic.com/s/mavenpro/v22/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8aXx1nejog.woff2);
+  }
+  
+  * {
+	font-family: "whacky" !important
+  }
+  
+  body {
+	background-color: var(--accent);
+	transition: 0.3s;
+  }
+  
+  .grid {
+	width: 516px;
+	height: 396px;
+	display: flex;
+	flex-wrap: wrap;
+	border: solid var(--accent2) 5px;
+	position: absolute;
+	left: 50%;
+	top: 130px;
+	transform: translateX(-50%);
+	background-color: var(--grid);
+	border-radius: 20px;
+	cursor: var(--cursor), default;
+	overflow: hidden;
+	transition: 0.3s;
+	border-bottom: solid var(--accent2) 40px;
+	border-top: solid var(--accent2) 40px;
+  }
+  
+  .square {
+	height: 130px;
+	width: 170px;
+	border-top: dashed var(--accent2) 2px;
+	border-left: dashed var(--accent2) 2px;
+  }
+  
+  .mole {
+	background-image: var(--mole);
+	background-size: 110px;
+	background-repeat: no-repeat;
+	left: 10px;
+	background-position: center;
+	background-color: var(--accent);
+  }
+  
+  #bl1, #bl2, #bl3 {
+	border-top: none
+  }
+  
+  #bl1, #bl4, #bl7 {
+	border-left: none
+  }
+  
+  #icon {
+	cursor: pointer;
+	width: 20px;
+	display: flex;
+	position: fixed;
+	right: 0px;
+	top: 0px;
+	transition: 0.3s;
+	image-rendering: crisp-edges;
+	background-color: var(--accent);
+	padding-right: 5px !important;
+	padding-left: 6px !important;
+	padding: 3px;
+	box-shadow: 0px 0px 7px -0.5px var(--ac);
+	border-bottom-left-radius: 5px
+  }
+  
+  .logo {
+	font-size: 45px;
+	position: absolute;
+	width: fit-content;
+	transform: rotate(-1deg);
+	left: calc(50% - 245px);
+	top: -2px;
+	display: inline-block;
+	font-weight: bold;
+	text-shadow: 6px 2px 0px var(--accent2), -1.5px -1.5px 0px var(--accent2), -1.5px 1.5px 0px var(--accent2), 1.5px 1.5px 0px var(--accent2), 1.5px -1.5px 0px var(--accent2);
+	color: var(--accent);
+	transition: 0.3s
+  }
+  
+  #logw {
+	position: relative;
+	transform: translate(13px, 45px) rotate(-20deg);
+  }
+  
+  #logh {
+	position: relative;
+	transform: translate(6px, 30px) rotate(-16deg);
+  }
+  
+  #loga {
+	position: relative;
+	transform: translate(3px, 20px) rotate(-12deg);
+  }
+  
+  #logc {
+	position: relative;
+	transform: translate(-1px, 12px) rotate(-8deg);
+  }
+  
+  #log- {
+	position: relative;
+	transform: translate(1px, 8px) rotate(-4deg);
+  }
+  
+  #loga2 {
+	position: relative;
+	transform: translate(0px, 5px) rotate(0deg);
+  }
+  
+  #log-2 {
+	position: relative;
+	transform: translate(-1px, 8px) rotate(4deg);
+  }
+  
+  #logm {
+	position: relative;
+	transform: translate(1px, 12px) rotate(8deg);
+  }
+  
+  #logo {
+	position: relative;
+	transform: translate(-3px, 20px) rotate(12deg);
+  }
+  
+  #logl {
+	position: relative;
+	transform: translate(-6px, 30px) rotate(16deg);
+  }
+  
+  #loge {
+	position: relative;
+	transform: translate(-13px, 42px) rotate(20deg);
+  }
+
+  #logex {
+	position: relative;
+	transform: translate(-21px, 52px) rotate(24deg);
+  }
+  
+  .sco, .time {
+	color: var(--accent);
+	font-size: 21px;
+	z-index: 50;
+	font-weight: var(--weight)
+  }
+  
+  .sco {
+	position: absolute;
+	top: 120px;
+	right: calc(50% + 135px);
+  }
+  
+  #score {
+	position: absolute;
+	transform: translateX(6px);
+	width: 2px;
+	text-align: left;
+  }
+  
+  .time {
+	position: absolute;
+	top: 120px;
+	right: calc(50% - 220px);
+  }
+  
+  #time-left {
+	position: absolute;
+	transform: translateX(6px);
+	width: 2px;
+	text-align: left;
+  }
+  
+  #restart {
+  	background-color: var(--accent2);
+  	color: var(--accent);
+  	font-weight: var(--weight);
+  	font-size: 20px;
+  	border: none;
+  	height: 40px;
+  	width: 526px;
+  	left: 50%;
+  	top: 558px;
+  	position: relative;
+  	transform: translateX(-50%);
+  	z-index: 50;
+  	border-bottom-left-radius: 20px;
+  	border-bottom-right-radius: 20px;
+  	cursor: pointer
+  }
